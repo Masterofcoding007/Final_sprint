@@ -1,0 +1,49 @@
+
+<table class="table table-striped"  style="width:100%">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author </th>
+            <th>Publisher </th>
+            <th>Price</th>
+            <th>Publish Date</th>
+            <th>Category</th>
+            <th>Click To Buy</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let book of searchResult">
+            <td>{{ book.title}}</td>
+            <td>{{ book.author}}</td>
+            <td>{{ book.publisher}}</td>
+            <td>{{ book.price}}</td>
+            <td>{{ book.publishedDate | date}}</td>
+            <td>{{ book.categoryName}}</td>
+            <td>
+                <button type="button" class="btn btn-info" 
+                data-bs-toggle="modal" data-bs-target="#purchaseModal"
+                (click)="purchaseClick(book, book.title)"
+                data-backdrop="static" data-keyboard="false">Buy</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+ <!-- Purchase Modal -->
+ <div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
+    <div class="modal-dialog" role="document">
+          <div class="modal-content">
+                <div class="modal-header">
+                      <h4 class="modal-title">{{ModalTitle}}</h4>
+                      <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
+                    </div>
+           <div class="modal-body">
+               <app-purchase [bookID]="bookID"></app-purchase>
+                    </div>
+                <div class="modal-footer">
+                      <button type="button" class="btn btn-default" (click)="onCloseHandled()" >Close</button>
+                    </div>
+       </div>
+        </div>
+</div>

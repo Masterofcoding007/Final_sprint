@@ -1,0 +1,29 @@
+<h3>Purchased Book History</h3>
+
+<table class="table table-striped"  style="width:100%">
+    <thead bgColor="blue">
+        <tr>
+            <th>Title</th>
+            <th>Author </th>
+            <th>Publisher </th>
+            <th>Price</th>
+            <th>Publish Date</th>
+            <th>Category</th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let book of purchasedBookHistory">
+            <td>{{ book.title}}</td>
+            <td>{{ book.author}}</td>
+            <td>{{ book.publisher}}</td>
+            <td>{{ book.price}}</td>
+            <td>{{ book.publishedDate | date}}</td>
+            <td>{{ book.categoryName}}</td>
+          
+        </tr>
+    </tbody>
+</table>
+
+
+<button type="button" class="btn btn-primary mr-1" (click)="onCloseHandled()" >Close</button>

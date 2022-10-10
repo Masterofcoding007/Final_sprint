@@ -1,0 +1,47 @@
+
+  
+  <header class="ScriptHeader">
+      <div class="rt-container">
+            <div class="col-rt-12">
+                <div class="rt-heading">
+                    <h1>Registration Successful</h1>
+              </div>
+          </div>
+      </div>
+  </header>
+  
+  <section>
+      <div class="rt-container">
+            <div class="col-rt-12">
+                <div class="Scriptcontent">
+                
+  <!-- partial:index.partial.html -->
+  <div id='card' class="animated fadeIn">
+    <div id='upper-side'>
+        <img src="http://goactionstations.co.uk/wp-content/uploads/2017/03/Green-Round-Tick.png" alt=""> 
+    </div>
+    <div id='lower-side'>
+      <p id='message'>
+        {{alertMessage}}
+      </p>
+      <p id='message'>
+            {{userMessage}}<b>{{userName}}</b>
+          </p>
+          <p id='message'>
+            {{newBookMessage}}<b>{{bookName}}</b>
+          </p>
+          <p id='message'>
+            {{purchasedBookMessage}}<b>{{purchesedBook}}</b>
+          </p>
+      <button  id="contBtn"  (click)="onCloseHandled()">Continue</button>
+    </div>
+  </div>
+  <!-- partial -->
+                  
+             
+                  </div>
+              </div>
+      </div>
+  </section>
+  
+  

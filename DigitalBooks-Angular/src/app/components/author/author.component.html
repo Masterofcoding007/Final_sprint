@@ -1,0 +1,44 @@
+
+<div class="container">
+    <br/>
+    <div class="vertical-center">
+    <button type="button" class="btn btn-primary addBook"  (click)="openModal()"> Click here to Add Book</button>
+    </div>
+</div>
+    <br/>
+    <table class="table table-striped"  style="width:100%">
+        <thead bgcolor="blue">
+            <tr>
+                <th>Title</th>
+                <th>Author </th>
+                <th>Publisher </th>
+                <th>Price</th>
+                <th>Publish Date</th>
+                <th>Category</th>
+                <th>Block/Unblock</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let book of searchResult">
+                <td>{{ book.title}}</td>
+                <td>{{ book.author}}</td>
+                <td>{{ book.publisher}}</td>
+                <td>{{ book.price}}</td>
+                <td>{{ book.publishedDate | date}}</td>
+                <td>{{ book.categoryName}}</td>
+                <td>
+                    <!-- Default checked -->
+                    <div class="form-check form-switch">
+                        <label class="switch">
+                            <input class="form-check-input" type="checkbox" checked
+                            [(ngModel)]="book.active" (click)="activeInactiveClick(book)" [checked]="book.active" >
+                            <span class="slider round"></span>
+                          </label>
+                      
+                        <label class="form-check-label" ></label>
+                      </div>
+                    {{book.active}}
+                </td>
+            </tr>
+        </tbody>
+    </table>

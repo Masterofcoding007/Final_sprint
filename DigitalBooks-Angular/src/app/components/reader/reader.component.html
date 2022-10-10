@@ -1,0 +1,62 @@
+
+<table class="table table-striped"  style="width:100%">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Author </th>
+            <th>Publisher </th>
+            <th>Price</th>
+            <th>Publish Date</th>
+            <th>Category</th>
+            <th>Read/Buy</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let book of searchResult">
+            <td>{{ book.title}}</td>
+            <td>{{ book.author}}</td>
+            <td>{{ book.publisher}}</td>
+            <td>{{ book.price}}</td>
+            <td>{{ book.publishedDate | date}}</td>
+            <td>{{ book.categoryName}}</td>
+            <td>
+                <div *ngIf="book.email == 'NA' " >
+                <button type="button" class="btn btn-success" 
+                data-bs-toggle="modal" data-bs-target="#purchaseModal"
+                (click)="purchaseClick(book)"
+                data-backdrop="static" data-keyboard="false">Buy</button>
+                </div>
+                <div *ngIf="book.email != 'NA' " >
+                    <button type="button" class="btn btn-info" 
+                    data-bs-toggle="modal" data-bs-target="#readBookModal"
+                    (click)="readBookClick(book)"
+                    data-backdrop="static" data-keyboard="false">Read</button>
+                    </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+ <!-- Book History -->
+ <div >
+ <app-show-purchased-book-history [purchasedBookHistory]="bookHistoryList"></app-show-purchased-book-history>
+    <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
+  </div>
+
+ <!-- Read Book Modal -->
+ <div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':readBookdisplay}">
+    <div class="modal-dialog" role="document">
+          <div class="modal-content">
+                <div class="modal-header">
+                      <h4 class="modal-title">{{ModalReadBookTitle}}</h4>
+                      <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
+                    </div>
+           <div class="modal-body">
+           {{bookContent}}
+                <div class="modal-footer">
+                      <button type="button" class="btn btn-default" (click)="onCloseHandled()" >Close</button>
+                    </div>
+       </div>
+        </div>
+</div>

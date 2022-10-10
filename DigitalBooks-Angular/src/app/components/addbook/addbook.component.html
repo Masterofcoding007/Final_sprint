@@ -1,0 +1,97 @@
+
+<div class="card m-3">
+  <h5 class="card-header">Add Book</h5>
+  <div class="card-body">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmitClick()">
+            <div class="form-row">
+                <div class="form-group col">
+                   
+                    <label>Book Name</label>
+                     <input type="text" formControlName="bookname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['bookname'].errors }" name="usrnm" [(ngModel)]="book.bookName"/>
+                    <div *ngIf="submitted && f['bookname'].errors" class="invalid-feedback">
+                        <div *ngIf="f['bookname'].errors['required']">First Name is required</div>
+                    </div>
+                </div>
+                <div class="form-group col">
+                    <label> Category Name </label>
+       <!-- #category (change)="onSelected(category.value)" -->
+           <select #category  formControlName="bookmaster" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['bookmaster'].errors }" (change)="onSelected(category.value)"  > 
+             <option value="0">--Select Category name--</option>  
+               <option *ngFor="let Categories of CategoryList" value={{Categories.categoryId}}>                
+                 {{Categories.categoryName}}  
+               </option>
+           </select>
+        <div *ngIf="submitted && f['bookmaster'].errors" class="invalid-feedback">
+                       <div *ngIf="f['bookmaster'].errors['required']"> Please select Category Name</div>
+                   </div>
+                   </div>
+                 </div>
+            <div class="form-row">
+               
+                <div class="form-group col-5">
+                    <label>Book Content</label>
+                    <input type="text" formControlName="bookcnt" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['bookcnt'].errors }" name="bookContent" [(ngModel)]="book.content" />
+                    <div *ngIf="submitted && f['bookcnt'].errors" class="invalid-feedback">
+                        <div *ngIf="f['bookcnt'].errors['required']">Enter some content</div>
+                    </div>
+                    </div>
+                    <div class="form-group col-5">
+                        <label>Publisher Name</label>
+                        <input type="text" formControlName="publishername" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['publishername'].errors }" name="publisherName" [(ngModel)]="book.publisher" />
+                        <div *ngIf="submitted && f['publishername'].errors" class="invalid-feedback">
+                            <div *ngIf="f['publishername'].errors['required']">Publisher is required</div>
+                        </div>
+                    </div>
+                    
+            </div>
+            <div class="form-row">
+                <div class="form-group col-5">
+                    <label>Published date</label>
+                    <input type="date" formControlName="publisheddate" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['publisheddate'].errors }" name="publishdate" [(ngModel)]="book.publishedDate" />
+                    <div *ngIf="submitted && f['publisheddate'].errors" class="invalid-feedback">
+                        <div *ngIf="f['publisheddate'].errors['required']">Publish date required</div>
+                    </div>
+                </div>
+                <div class="form-group col">
+                    <label>Price</label>
+                    <input type="number" formControlName="pricecontrol" class="form-control" [ngClass]="{ 'is-invalid': submitted && f['pricecontrol'].errors }" name="bookprice"  [(ngModel)]="book.price" />
+                    <div *ngIf="submitted && f['pricecontrol'].errors" class="invalid-feedback">
+                        <div *ngIf="f['pricecontrol'].errors['required']">Enter some price</div>
+                    </div>             
+                </div>
+                </div>
+                <div class="form-row">
+            <div class="form-group form-check">
+                <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input" [ngClass]="{ 'is-invalid': submitted && f['acceptTerms'].errors }" />
+                <label for="acceptTerms" class="form-check-label">Accept Terms & Conditions</label>
+                <div *ngIf="submitted && f['acceptTerms'].errors" class="invalid-feedback">Accept Ts & Cs is required</div>
+            </div>
+        </div>
+            <div class="text-center">
+                <button class="btn btn-primary mr-1" data-toggle="modal" data-target="#exampleModal">Create Book</button>
+                <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h1>Jagadeesh</h1>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>

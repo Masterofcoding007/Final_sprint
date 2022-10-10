@@ -1,0 +1,13 @@
+/* Set a style for the submit button */
+.btn {
+  background-color: dodgerblue;
+  cursor: pointer;
+  width: 75%;
+  opacity: 0.9;
+}
+
+.btn:hover {
+    opacity: 1;
+  }
+
+  

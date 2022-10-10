@@ -1,0 +1,16 @@
+<div class="cards-container">
+    <div class="cards-form">
+      <form #form="ngForm" (ngSubmit)="onSubmit()">
+        
+        <div>
+          <i class="fa fa-envelope icon"><span>Email Id</span></i>
+          <input class="input-field" type="text" placeholder="Enter email address" name="email" [(ngModel)]="objpurchase.emailId"(focusout)="onFocusOutEvent($event)" value={{emailPlaceHolder}}>
+        </div>
+        
+        <div class="form-group">
+          <button class="btn btn-success">Buy</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

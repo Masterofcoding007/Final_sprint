@@ -1,0 +1,31 @@
+
+
+  <form #form="ngForm" style="max-width:500px;margin:auto" (ngSubmit)="onSaveSubmit()" >
+  <h2>Register Form</h2>
+  <div class="input-container">
+    <i class="fa fa-user icon"></i>
+    <input class="input-field" type="text" placeholder="Enter user name" name="usrnm" [(ngModel)]="user.userName">
+  </div>
+
+  <div class="input-container">
+    <i class="fa fa-envelope icon"></i>
+    <input class="input-field" type="text" placeholder="Enter email address" name="email" [(ngModel)]="user.emailId">
+  </div>
+  
+  <div class="input-container">
+    <i class="fa fa-key icon"></i>
+    <input class="input-field" type="password" placeholder="Enter password" name="psw" [(ngModel)]="user.password">
+  </div>
+
+  <div class="input-container">
+    <i class="fa fa-user icon"></i>
+    <input class="input-field" type="text" placeholder="Enter first name" name="usrnm" [(ngModel)]="user.firstName">
+  </div>
+
+  <div class="input-container">
+    <i class="fa fa-user icon"></i>
+    <input class="input-field" type="text" placeholder="Enter last name" name="usrnm" [(ngModel)]="user.lastName">
+  </div>
+
+  <button type="submit" class="btn">Register</button>
+</form>
